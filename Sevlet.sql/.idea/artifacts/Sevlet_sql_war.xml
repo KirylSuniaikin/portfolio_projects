@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Sevlet-sql:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>Sevlet-sql</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="Sevlet-sql-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="Sevlet-sql:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>{{title}}</title><!-- передаем значение title из контроллера с помощью thymleaf -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+        <span class="fs-4">Kiryl Suniaikin</span>
+    </a>
+    <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+        <a class="me-3 py-2 text-dark text-decoration-none" href="/">Главня</a>
+        <a class="me-3 py-2 text-dark text-decoration-none" href="/about">Про нас</a>
+        <a class="me-3 py-2 text-dark text-decoration-none" href="/reviews">Отзывы</a>
+
+    </nav>
+</div>
+
+<div class="conteiner mt-5">
+    <!-- <p th:text="${title}" />  передаем значение title из контроллера с помощью thymleaf -->
+    <h1>{{title}}</h1>
+    <form action="reviews-add" method="post"><!--создание формы для добавлеине в бд элементов -->
+        <input type="text" name="title" placeholder="ENTER title" class="form-control"><br>
+            <textarea name="text" placeholder="ENTER title" class="form-control"></textarea><br>
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"><br>
+            <button type="submit" class="btn btn-success">Add</button>
+    </form>
+<h3 class="mt-2">All reviews</h3>
+
+    
+    {{#reviews}}
+        <h3>{{title}}</h3>
+       <p>{{text}}</p>
+        <a class="btn btn-warning" href="/reviews/{{review_id}}">Детальнее</a>
+    {{/reviews}}
+</div>
+<footer class="pt-4 my-md-5 pt-md-5 border-top">
+    <div class="row">
+        <div class="col-12 col-md">
+            <small class="d-block mb-3 text-muted">&copy; 2017–2021</small>
+        </div>
+        <div class="col-6 col-md">
+            <h5>Features</h5>
+            <ul class="list-unstyled text-small">
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Cool stuff</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Random feature</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Team feature</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Stuff for developers</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Another one</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Last time</a></li>
+            </ul>
+        </div>
+        <div class="col-6 col-md">
+            <h5>Resources</h5>
+            <ul class="list-unstyled text-small">
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Resource</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Resource name</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Another resource</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Final resource</a></li>
+            </ul>
+        </div>
+        <div class="col-6 col-md">
+            <h5>About</h5>
+            <ul class="list-unstyled text-small">
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Team</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Locations</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Privacy</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Terms</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
